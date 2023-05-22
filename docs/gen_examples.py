@@ -12,7 +12,7 @@ else:
     replacements = {}
 
 # Replace personal details in notebook
-for notebook in Path('examples_dev').glob('*.ipynb'):
+for notebook in Path('examples_dev').glob('*.*py*'):
     # Read in notebook
     with notebook.open('r') as nb:
         full_nb = nb.read()
@@ -36,6 +36,6 @@ index_path.parent.mkdir(exist_ok=True)
 with index_path.open("w") as index:
     index.write("# Examples \n\n")
 
-    for notebook in Path('examples').glob('*.ipynb'):
+    for notebook in Path('examples').glob('*.*py*'):
         notebook_name = " ".join(notebook.stem.title().split("_"))
         index.write(f"* [{notebook_name}]({notebook.name})\n")
